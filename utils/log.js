@@ -1,6 +1,7 @@
 
-const logToScreen = (missionObj) => {
+const logMissionShowing = (missionObj) => {
   console.log(`Mission: ${missionObj.missionName}`)
+  console.log(`Time: ${missionObj.time}`)
   console.log(`Drone: ${missionObj.droneModel}`)
   console.log(`Distance: ${missionObj.distance.value.toFixed(2)} ${missionObj.distance.unit}`)
   console.log(`Altitude: ${missionObj.altitude.value.toFixed(2)} ${missionObj.altitude.unit}`)
@@ -19,7 +20,10 @@ const logFlightDistance = (distance) => {
 }
 
 const logHeaderDetail = (argv) => {
-  console.log(`Mission: "${argv.mission}" Function: "${argv.function}" Unit: "${argv.unit}"`)
+  const mesMission = `Mission: "${argv.mission}"`
+  const mesFuntion = `Function: "${argv.function.charAt(0).toUpperCase()}${argv.function.slice(1)}"`
+  const mesUnit = `Unit: "${argv.unit}"`
+  console.log(mesMission, mesFuntion, mesUnit)
 }
 
 const logInvoiceReport = (bill) => {
@@ -42,6 +46,6 @@ module.exports = {
   logFlightDistance,
   logHeaderDetail,
   logInvoiceReport,
+  logMissionShowing,
   logTotalArea,
-  logToScreen,
 }
