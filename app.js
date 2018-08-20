@@ -15,7 +15,7 @@ const argv = yargs
     }
   })
   .command('list', 'List all mission.')
-  .command('detail', 'Show detail specific function ex. Total Area', {
+  .command('detail', 'Show detail specifying function ex. Total Area', {
     mission: {
       describe: 'The mission planning system.',
       demand: true,
@@ -57,6 +57,7 @@ const argv = yargs
     }
   })
   .help()
+  .alias('h', 'help')
   .argv
 
 const command = argv._[0]

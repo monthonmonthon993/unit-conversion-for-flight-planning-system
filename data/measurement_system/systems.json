@@ -1,1 +1,23 @@
-[{"name":"metric","unitDefault":{"length":"m","area":"sq.m"}},{"name":"imperial","unitDefault":{"length":"foot","area":"acre"}},{"name":"thai system","unitDefault":{"length":"wa","area":"rai"}}]
+[
+  {
+    "name": "metric",
+    "unitDefault": {
+      "length": "m",
+      "area": "sq.m"
+    }
+  },
+  {
+    "name": "imperial",
+    "unitDefault": {
+      "length": "foot",
+      "area": "acre"
+    }
+  },
+  {
+    "name": "thai system",
+    "unitDefault": {
+      "length": "wa",
+      "area": "rai"
+    }
+  }
+]
