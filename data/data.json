@@ -2,6 +2,7 @@
   {
     "missionName": "Mission A",
     "droneModel": "Model A",
+    "time": "9min/45min",
     "distance": {
       "value": 7000,
       "unit": "m"
