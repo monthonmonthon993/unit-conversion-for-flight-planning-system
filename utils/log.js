@@ -10,8 +10,14 @@ const logMissionShowing = (missionObj) => {
 }
 
 const logChargingRate = (chargingRate) => {
-  const unit = chargingRate.unit.charAt(0).toUpperCase() + chargingRate.unit.slice(1) 
-  const rateCharge = chargingRate.value.toFixed(6)
+  const unit = chargingRate.unit.charAt(0).toUpperCase() + chargingRate.unit.slice(1)
+  let rateCharge
+  if (unit === 'Rai' || unit === 'Sq.m' || unit === 'Acre') {
+    rateCharge = chargingRate.value.toFixed(1)
+  }
+  else {
+    rateCharge = chargingRate.value.toFixed(6)
+  }
   console.log(`Charging Rate in ${unit} is ${rateCharge} THB/${unit}`)
 }
 
@@ -33,7 +39,7 @@ const logInvoiceReport = (bill) => {
     const unit = bill.unit.charAt(0).toUpperCase() + bill.unit.slice(1) 
     console.log('Invoice Report')
     console.log(`Charging Rate: ${chargingRate.toFixed(2)} THB/${unit}`)
-    console.log(`Total cost: ${totalCost.toFixed(2)} THB.`)
+    console.log(`Total cost: ${totalCost} THB.`)
   }
 }
 
