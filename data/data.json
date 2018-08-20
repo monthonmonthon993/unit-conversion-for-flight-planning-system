@@ -1,0 +1,22 @@
+[
+  {
+    "missionName": "Mission A",
+    "droneModel": "Model A",
+    "distance": {
+      "value": 7000,
+      "unit": "m"
+    },
+    "altitude": {
+      "value": 5,
+      "unit": "m"
+    },
+    "area": {
+      "value": 23,
+      "unit": "acre"
+    },
+    "groupArea": {
+      "value": 4.6,
+      "unit": "acre"
+    }
+  }
+]
