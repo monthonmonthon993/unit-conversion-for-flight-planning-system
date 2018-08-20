@@ -4,55 +4,55 @@ const log = require('./utils/log')
 const setting = require('./controller/setting/setting_mission')
 
 const argv = yargs
-  .command('display', 'Display the mission planning', {
+  .command('display', 'Display the mission flight.', {
     mission: {
-      describe: 'The mission planning system.',
+      describe: 'Find the mission flight following to mission specified.',
       demand: true
     },
     system: {
-      describe: 'The measurement system',
+      describe: 'Convert all unit following to system specified.',
       demand: true
-    }
+    },
   })
-  .command('list', 'List all mission.')
-  .command('detail', 'Show detail specifying function ex. Total Area', {
+  .command('list', 'Show all mission flights.')
+  .command('detail', 'Show a function detail such as Total area, Flight distance.', {
     mission: {
-      describe: 'The mission planning system.',
+      describe: 'Find the mission flight following to mission specified.',
       demand: true,
       default: ""
     },
     function: {
-      describe: 'show for: Total area, flight distance, Charging Rate, Invoice report',
+      describe: 'Specify function for show detail.',
       demand: true
     },
     unit: {
-      describe: 'The unit you want to know.',
+      describe: 'Convert unit.',
       demand: true
     }
-  }).command('add_unit', 'Add more units', {
+  }).command('add_unit', 'Add more units.', {
     unit: {
-      describe: 'The unit you want to add',
+      describe: 'Add unit',
       demand: true
     },
     type: {
-      describe: 'Area or Length',
+      describe: 'Specify Area or Length',
       demand: true
     },
     value: {
-      describe: 'Value compare with 1 kilometre for length and 0.001 sq.km for area.',
+      describe: 'Compare this value with 1 kilometre for length and 0.001 sq.km for area.',
       demand: true
     }
   }).command('add_system', 'Add more systems.', {
     system: {
-      describe: 'The unit you want to add.',
+      describe: 'Add measurement system.',
       demand: true
     },
     length: {
-      describe: 'Unit of length default.',
+      describe: 'Specify unit for length default.',
       demand: true
     },
     area: {
-      describe: 'Unit of area default.',
+      describe: 'Specify unit for area default.',
       demand: true
     }
   })
