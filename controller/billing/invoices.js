@@ -28,7 +28,7 @@ const invoiceReport = (missionObj, unit) => {
   if (missionObj.area.value) {
     const rateCharge = chargingRate(unit) 
     const totalCost = rateCharge * missionObj.area.value
-    return {cost: totalCost, chargingRate: rateCharge}
+    return {cost: totalCost, chargingRate: rateCharge, totalArea: missionObj.area.value}
   } else {
     console.log(`"${unit}" is not area unit.`)
   }

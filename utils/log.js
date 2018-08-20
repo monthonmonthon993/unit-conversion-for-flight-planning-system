@@ -36,9 +36,11 @@ const logInvoiceReport = (bill) => {
   if (bill.value) {
     const chargingRate = bill.value.chargingRate
     const totalCost = bill.value.cost.toFixed(2)
+    const totalArea = bill.value.totalArea
     const unit = bill.unit.charAt(0).toUpperCase() + bill.unit.slice(1) 
-    console.log('Invoice Report')
+    console.log('****Invoice Report****')
     console.log(`Charging Rate: ${chargingRate.toFixed(2)} THB/${unit}`)
+    console.log(`Total area: ${totalArea} ${unit}`)
     console.log(`Total cost: ${totalCost} THB.`)
   }
 }

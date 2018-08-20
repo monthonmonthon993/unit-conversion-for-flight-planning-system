@@ -12,12 +12,5 @@
       "length": "foot",
       "area": "acre"
     }
-  },
-  {
-    "name": "thai system",
-    "unitDefault": {
-      "length": "wa",
-      "area": "rai"
-    }
   }
 ]
