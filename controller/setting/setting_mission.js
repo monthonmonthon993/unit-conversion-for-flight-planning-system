@@ -15,20 +15,28 @@ const totalArea = utils.totalArea
 const flightDistance = utils.flightDistance
 const writeData = utils.writeData
 
-//Show all mission
+/**
+ * Returns the list of mission flight data.
+ */
 const listData = () => {
   return fetchData(dirMission)
 }
 
-// Convert measurement following system.
-const convertMeasurement = (missionName, systemName) => {
-  const missionData = fetchData(dirMission).find(m => m.missionName == missionName) //Get mission from mission name input
-  const convertingSys = fetchData(dirSystems).find(system => system.name == systemName) //Get measurement system from system name input
 
-  if (missionData && convertingSys) { // Check if mission and system exist.
+/** 
+ * Returns the mission flight object that specifies by missionName and systemName.
+ * @param {string} missionName The name of flight mission.
+ * @param {string} systemName The name of measurement system (ex. Metric, Imperial).
+ * @return {Object|undefined}
+ */
+const convertMeasurement = (missionName, systemName) => {
+  const missionData = fetchData(dirMission).find(m => m.missionName.toLowerCase() == missionName.toLowerCase())
+  const convertingSys = fetchData(dirSystems).find(system => system.name.toLowerCase() == systemName.toLowerCase())
+
+  if (missionData && convertingSys) {
     const useToConvert = {length: ['distance', 'altitude'], area: ['area', 'groupArea']}
     const system = convertingSys.unitDefault
-    for (const key in missionData) { // iterating missionData through key (distance, altitude, area, groupArea)
+    for (const key in missionData) {
       let type
       if (useToConvert.length.includes(key)) {
         type = Object.keys(system)[0]
@@ -41,10 +49,16 @@ const convertMeasurement = (missionName, systemName) => {
     }
     return missionData
   } 
-  else { return undefined } // Not found the mission or measurement system.
+  else { return undefined }
 }
 
-//Display by following specific function and unit.
+/**
+ * Returns object of function that specifies by missionName, fn, unit.
+ * @param {string} missionName The name of flight mission.
+ * @param {string} fn The name of function (ex. Total Area, Flight Distance)
+ * @param {string} unit The unit of function that we want to represent.
+ * @return {Object}
+ */
 const displaySpecificUnit = (missionName, fn, unit) => {
   if (!checkUnitExist(unit)) {
     console.log(`Unit: ${unit} not exist.`)
@@ -72,7 +86,12 @@ const displaySpecificUnit = (missionName, fn, unit) => {
   
 }
 
-//Add more units
+/**
+ * Adds the unit to our system.
+ * @param {string} unit The unit that you want to add.
+ * @param {string} type The type of unit consists of Area and Length
+ * @param {string} valueRef The value of unit compares with our default unit (length: 1 km, area: 0.001 sq.m)
+ */
 const addUnit = (unit, type, valueRef) => {
   const units = fetchData(dirUnits)
   if (units && !checkUnitExist(unit) && checkTypeUnit(type)) {
@@ -87,6 +106,12 @@ const addUnit = (unit, type, valueRef) => {
   }
 }
 
+/**
+ * Adds the measurement system to our system.
+ * @param {string} systemName The name of measurement system that we want to add.
+ * @param {string} length The unit of length as a default of system.
+ * @param {string} area The unit of area as a default of system.
+ */
 const addSystem = (systemName, length, area) => {
   const systems = fetchData(dirSystems)
   const checkSystemExist = systems.find(sysObj => sysObj.name == systemName)

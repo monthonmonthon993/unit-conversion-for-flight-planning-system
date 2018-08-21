@@ -69,8 +69,8 @@ if (command == 'list') {
 else if (command == 'display') {
   const valueConverted = setting.convertMeasurement(argv.mission, argv.system)
   if (valueConverted) {
-    console.log(`**In ${argv.system.charAt(0).toUpperCase()}${argv.system.slice(1)} System**`) //show measurement system.
-    log.logMissionShowing(valueConverted) // display the detail mission to screen.
+    console.log(`**In ${argv.system.charAt(0).toUpperCase()}${argv.system.slice(1)} System**`)
+    log.logMissionShowing(valueConverted)
   } 
   else { 
     console.log('Your system or your mission not exist.') 
